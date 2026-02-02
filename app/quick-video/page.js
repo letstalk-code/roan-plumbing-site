@@ -1,10 +1,9 @@
 'use client';
-import { siteConfig } from '../../master-templates/plumbing-luxury/config/site-config';
+import { siteConfig } from '../config/site-config';
+import { theme } from '../config/theme';
 import Link from 'next/link';
 
 export default function QuickVideo() {
-    const { brandColors } = siteConfig;
-
     return (
         <main style={{
             backgroundColor: '#fff',
@@ -19,7 +18,7 @@ export default function QuickVideo() {
             <div style={{ maxWidth: '800px', width: '100%', textAlign: 'center' }}>
                 <img src={siteConfig.logoUrl} alt={siteConfig.businessName} style={{ height: '80px', marginBottom: '40px' }} />
 
-                {/* Loom Video Placeholder - In a real app, the user would paste their Loom embed code here */}
+                {/* Loom Video Placeholder */}
                 <div style={{
                     position: 'relative',
                     paddingBottom: '56.25%',
@@ -43,7 +42,7 @@ export default function QuickVideo() {
                 <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
                     <Link href="/yes-build" style={{ textDecoration: 'none' }}>
                         <button style={{
-                            backgroundColor: brandColors.primary,
+                            backgroundColor: theme.colors.primary,
                             color: '#fff',
                             padding: '20px 40px',
                             borderRadius: '16px',
@@ -52,7 +51,7 @@ export default function QuickVideo() {
                             fontWeight: '700',
                             cursor: 'pointer',
                             transition: 'transform 0.2s ease',
-                            boxShadow: `0 10px 20px ${brandColors.primary}33`
+                            boxShadow: `0 10px 20px ${theme.colors.primary}33`
                         }}>
                             YES — Finish & Put It Live
                         </button>
@@ -61,7 +60,7 @@ export default function QuickVideo() {
                     <Link href="/not-interested" style={{ textDecoration: 'none' }}>
                         <button style={{
                             backgroundColor: '#f1f5f9',
-                            color: brandColors.secondary,
+                            color: theme.colors.secondary,
                             padding: '20px 40px',
                             borderRadius: '16px',
                             border: 'none',
