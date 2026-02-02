@@ -2,6 +2,7 @@ import CoolHero from '../components/CoolHero';
 import HowItWorks from '../components/HowItWorks';
 import CoolFAQ from '../components/CoolFAQ';
 import Footer from '../components/Footer';
+import LeadForm from '../components/LeadForm';
 import { theme } from '../config/theme';
 import { siteConfig } from '../config/site-config';
 
@@ -34,6 +35,7 @@ export default function Home() {
             </section>
 
             <CoolFAQ />
+            <LeadForm />
             <Footer config={siteConfig} />
         </main>
     );
