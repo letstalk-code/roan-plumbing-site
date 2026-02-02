@@ -1,9 +1,15 @@
 'use client';
+import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { siteConfig } from '../../config/site-config';
 import { theme } from '../../config/theme';
 import Link from 'next/link';
 
-export default function QuickVideo() {
+function QuickVideoContent() {
+    const searchParams = useSearchParams();
+    const email = searchParams.get('email');
+    const emailParam = email ? `?email=${encodeURIComponent(email)}` : '';
+
     return (
         <main style={{
             backgroundColor: '#fff',
@@ -40,7 +46,7 @@ export default function QuickVideo() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                    <Link href="/yes-build" style={{ textDecoration: 'none' }}>
+                    <Link href={`/yes-build${emailParam}`} style={{ textDecoration: 'none' }}>
                         <button style={{
                             backgroundColor: theme.colors.primary,
                             color: '#fff',
@@ -57,7 +63,7 @@ export default function QuickVideo() {
                         </button>
                     </Link>
 
-                    <Link href="/not-interested" style={{ textDecoration: 'none' }}>
+                    <Link href={`/not-interested${emailParam}`} style={{ textDecoration: 'none' }}>
                         <button style={{
                             backgroundColor: '#f1f5f9',
                             color: theme.colors.secondary,
@@ -77,5 +83,13 @@ export default function QuickVideo() {
 
             <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
         </main>
+    );
+}
+
+export default function QuickVideo() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <QuickVideoContent />
+        </Suspense>
     );
 }
