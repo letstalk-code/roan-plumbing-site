@@ -1,6 +1,6 @@
 'use client';
-import { siteConfig } from '../config/site-config';
-import { theme } from '../config/theme';
+import { siteConfig } from '../../config/site-config';
+import { theme } from '../../config/theme';
 
 export default function Yes() {
     return (

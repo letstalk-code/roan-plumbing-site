@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import { siteConfig } from '../config/site-config';
-import { theme } from '../config/theme';
+import { siteConfig } from '../../config/site-config';
+import { theme } from '../../config/theme';
 
 export default function YesBuild() {
     // Local state for the component
